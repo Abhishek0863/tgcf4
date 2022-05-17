@@ -129,12 +129,6 @@ async def start_sync() -> None:
         client.add_event_handler(*val)
         logging.info(f"Added event handler for {key}")
 
-    if config.is_bot and const.REGISTER_COMMANDS:
-        await client(
-            functions.bots.SetBotCommandsRequest(
-                commands=[
-                    types.BotCommand(command=key, description=value)
-                    for key, value in const.COMMANDS.items()
                 ]
             )
         )
